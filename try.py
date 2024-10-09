@@ -5,8 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from read import read_the_file
 
-email_id = "aluhar1@binghamton.edu"
-password = "Uchihaamit@95"
+email_id = "email_id"
+password = "pass"
 file_path = "8-19.ods"
 selected_sheet = "12-2"
 df = read_the_file(file_path, selected_sheet)
