@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
+import time, os
 from read import read_the_file
 from dotenv import load_dotenv
 load_dotenv()
@@ -150,6 +150,30 @@ def fill_form(row_data):
     )
     input_field8.clear()
     input_field8.send_keys(str(row_data[9]))
+    
+    # Click Next
+    next_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable(
+            (By.XPATH, "//span[@class='NPEfkd RveJvd snByac' and text()='Next']")
+        )
+    )
+    next_button.click()
+    time.sleep(1)
+    
+    next_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable(
+            (By.XPATH, "//span[@class='NPEfkd RveJvd snByac' and text()='Next']")
+        )
+    )
+    next_button.click()
+    time.sleep(1)
+    
+    # submit_button = WebDriverWait(driver, 10).until(
+    #     EC.element_to_be_clickable(
+    #         (By.XPATH, "//span[@class='NPEfkd RveJvd snByac' and text()='Submit']")
+    #     )
+    # )
+    # submit_button.click()
 
 
 def select_option(desired_option_text, dropdown_selector):
@@ -189,6 +213,7 @@ time.sleep(2)
 sign_in_button = driver.find_element(By.LINK_TEXT, "Sign in")
 sign_in_button.click()
 time.sleep(2)
+
 
 email_input = driver.find_element(By.XPATH, "//input[@type='email']")
 email_input.send_keys(email_id)
