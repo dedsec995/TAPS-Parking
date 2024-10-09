@@ -4,9 +4,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from read import read_the_file
+from dotenv import load_dotenv
+load_dotenv()
 
-email_id = "email_id"
-password = "pass"
+email_id = os.getenv("EMAIL")
+password = os.getenv("PASS")
 file_path = "8-19.ods"
 selected_sheet = "12-2"
 df = read_the_file(file_path, selected_sheet)
