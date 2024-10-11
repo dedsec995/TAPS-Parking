@@ -9,7 +9,7 @@ load_dotenv()
 
 email_id = os.getenv("EMAIL")
 password = os.getenv("PASS")
-file_path = "8-19.ods"
+file_path = "/home/dedsec995/Documents/Parking/10-10.ods"
 selected_sheet = "12-2"
 df = read_the_file(file_path, selected_sheet)
 desired_option = {
@@ -45,7 +45,7 @@ def fill_form(row_data):
         )
     )
     next_button.click()
-
+    time.sleep(1)
     # Select time slot
     select_option(desired_option_text, "div[role='listbox']")
 
@@ -56,7 +56,7 @@ def fill_form(row_data):
         )
     )
     next_button.click()
-
+    time.sleep(1)
     # Select loop
     select_option(selected_loop, "div[role='listbox']")
 
@@ -67,7 +67,7 @@ def fill_form(row_data):
         )
     )
     next_button.click()
-
+    time.sleep(1)
     # Select row
     select_option(row_data[0], "div[role='listbox']")
 
@@ -78,14 +78,14 @@ def fill_form(row_data):
         )
     )
     next_button.click()
-
+    time.sleep(1)
     # Input data from the next column (row[1])
     input_field = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "input.whsOnd.zHQkBf"))
     )
     input_field.clear()
     input_field.send_keys(str(row_data[1]))
-
+    time.sleep(1)
     # Click Next
     next_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable(
@@ -168,12 +168,12 @@ def fill_form(row_data):
     next_button.click()
     time.sleep(1)
     
-    # submit_button = WebDriverWait(driver, 10).until(
-    #     EC.element_to_be_clickable(
-    #         (By.XPATH, "//span[@class='NPEfkd RveJvd snByac' and text()='Submit']")
-    #     )
-    # )
-    # submit_button.click()
+    submit_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable(
+            (By.XPATH, "//span[@class='NPEfkd RveJvd snByac' and text()='Submit']")
+        )
+    )
+    submit_button.click()
 
 
 def select_option(desired_option_text, dropdown_selector):
@@ -229,15 +229,17 @@ get2fa = input("2FA Done?: ")
 
 # Iterate through each row in the dataframe
 for index, row in df.iterrows():
+    print(f"Starting {row[0]}")
     driver.execute_script("window.open('');")
     driver.switch_to.window(driver.window_handles[-1])
     driver.get(
         "https://docs.google.com/forms/d/e/1FAIpQLSe_UTDrBFTTVCXR8B4V_YB76g2wb5ulvUpCbKRnkJKNDImOBQ/viewform"
     )
     fill_form(row)
+    print(f"Done {row[0]}")
     time.sleep(2)  # Wait between submissions
-    break
 
-time.sleep(450000)
-
+print("Done with all the Parking lots.")
+print("Closing in 90 seconds.")
+time.sleep(90)
 driver.quit()
