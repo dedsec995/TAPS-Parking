@@ -9,13 +9,16 @@ load_dotenv()
 
 email_id = os.getenv("EMAIL")
 password = os.getenv("PASS")
-file_path = "/home/dedsec995/Documents/Parking/10-10.ods"
+file_path = "8-19.ods"
 selected_sheet = "12-2"
 df = read_the_file(file_path, selected_sheet)
 desired_option = {
     "8-10": "8  -  9:59 AM",
     "10-12": "10  -  11:59 AM",
     "12-2": "12  -  1:59  PM",
+    "2-4":"2  -  3:59  PM",
+    "4-6":"4  -  5:59  PM",
+    "6-8":"6  -  8  PM"
 }
 
 desired_option_text = desired_option[selected_sheet]
