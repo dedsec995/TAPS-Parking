@@ -9,8 +9,8 @@ load_dotenv()
 
 email_id = os.getenv("EMAIL")
 password = os.getenv("PASS")
-file_path = "8-19.ods"
-selected_sheet = "2-4"
+file_path = "/home/dedsec995/Documents/Parking/11-07.ods"
+selected_sheet = "12-2"
 df = read_the_file(file_path, selected_sheet)
 desired_option = {
     "8-10": "8  -  9:59 AM",
@@ -100,56 +100,56 @@ def fill_form(row_data):
     time.sleep(1)
     # First input field (row[2])
     input_field1 = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i1']"))
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i1 i4']"))
     )
     input_field1.clear()
     input_field1.send_keys(str(row_data[2]))
 
     # Second input field (row[3])
     input_field2 = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i5']"))
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i6 i9']"))
     )
     input_field2.clear()
     input_field2.send_keys(str(row_data[3]))
 
     # Third input field (row[4])
     input_field3 = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i9']"))
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i11 i14']"))
     )
     input_field3.clear()
     input_field3.send_keys(str(row_data[4]))
 
     # Fourth input field (row[5])
     input_field4 = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i13']"))
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i16 i19']"))
     )
     input_field4.clear()
     input_field4.send_keys(str(row_data[5]))
 
     # Fifth input field (row[6])
     input_field5 = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i17']"))
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i21 i24']"))
     )
     input_field5.clear()
     input_field5.send_keys(str(row_data[6]))
 
     # Sixth input field (row[7])
     input_field6 = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i21']"))
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i26 i29']"))
     )
     input_field6.clear()
     input_field6.send_keys(str(row_data[7]))
 
     # Seventh input field (row[8])
     input_field7 = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i25']"))
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i31 i34']"))
     )
     input_field7.clear()
     input_field7.send_keys(str(row_data[8]))
 
     # Eighth input field (row[9])
     input_field8 = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i29']"))
+        EC.presence_of_element_located((By.CSS_SELECTOR, "input[aria-labelledby='i36 i39']"))
     )
     input_field8.clear()
     input_field8.send_keys(str(row_data[9]))
